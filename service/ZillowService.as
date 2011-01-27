@@ -9,7 +9,7 @@ package widgets.Zillow.service
 	
 	public class ZillowService extends EventDispatcher
 	{
-		private const zwsid:String = "X1-ZWz1bx87atjksr_ako3m";
+		private const zwsid:String = "xxxx";
 		
 		private const zillowURL:String = "http://www.zillow.com/webservice/GetRegionPostings.htm?zws-id=";
 		// sample string
