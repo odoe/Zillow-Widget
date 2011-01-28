@@ -2,7 +2,7 @@ package widgets.Zillow.test
 {
     import org.flexunit.asserts.assertNotNull;
     
-    import widgets.Zillow.service.ZillowService;
+    import widgets.Zillow.main.service.ZillowService;
     import widgets.Zillow.test.service.ZillowServiceTest;
 
     [Suite]

@@ -5,7 +5,7 @@ package widgets.Zillow.test.service
     import org.flexunit.asserts.assertNull;
     import org.flexunit.async.Async;
     
-    import widgets.Zillow.service.ZillowService;
+    import widgets.Zillow.main.service.ZillowService;
 
     public class ZillowServiceTest
     {
