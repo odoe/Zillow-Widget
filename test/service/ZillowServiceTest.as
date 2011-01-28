@@ -2,6 +2,9 @@ package widgets.Zillow.test.service
 {
     import flash.events.Event;
     
+    import mx.utils.ObjectUtil;
+    
+    import org.flexunit.asserts.assertNotNull;
     import org.flexunit.asserts.assertNull;
     import org.flexunit.async.Async;
     
@@ -33,7 +36,8 @@ package widgets.Zillow.test.service
         
         protected function onZillowResultsReturned(e:Event, ...args):void
         {
-            assertNull(service.results);
+			//trace(ObjectUtil.toString(service.results));
+            assertNotNull(service.results);
         }
     }
 }
