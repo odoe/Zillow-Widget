@@ -38,8 +38,8 @@ package widgets.Zillow.test.service
         protected function onZillowResultsReturned(e:ZillowEvent, ...args):void
         {
 			//trace(ObjectUtil.toString(service.results));
-            assertNotNull("array collection is not null", e.results);
-			assertTrue("array collection contains items", e.results.length > 0);
+            assertNotNull("array collection is not null", e.zillowPostings);
+			assertTrue("array collection contains items", e.zillowPostings.makeMeMove.length > 0);
         }
     }
 }

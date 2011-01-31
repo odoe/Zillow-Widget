@@ -4,26 +4,28 @@ package widgets.Zillow.main.events
 	
 	import mx.collections.ArrayCollection;
 	
+	import widgets.Zillow.main.vo.ZillowPosting;
+	
 	public class ZillowEvent extends Event
 	{
 		public static const POSTINGS_READY:String = "postingsReady";
 		
-		private var _results:ArrayCollection;
+		private var _zillowPostings:ZillowPosting;
 		
-		public function get results():ArrayCollection
+		public function get zillowPostings():ZillowPosting
 		{
-			return _results;
+			return _zillowPostings;
 		}
 		
-		public function ZillowEvent(type:String, results:ArrayCollection)
+		public function ZillowEvent(type:String, postings:ZillowPosting)
 		{
 			super(type, true, true);
-			_results = results;
+			_zillowPostings = postings;
 		}
 		
 		override public function clone():Event
 		{
-			return new ZillowEvent(type, results);
+			return new ZillowEvent(type, zillowPostings);
 		}
 	}
 }
