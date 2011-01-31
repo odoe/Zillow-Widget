@@ -40,6 +40,8 @@ package widgets.Zillow.main.view.ui
                     // TODO - set Zillow Renderer
                     if (!map.getLayer(zillowLayer.id))
                         map.addLayer(zillowLayer);
+                    
+                    trace("zillow layer should be in map");
                 }
 				dispatchEvent(new Event(MAP_CHANGE_EVENT));
 			}
