@@ -6,8 +6,10 @@ package widgets.Zillow.test.service
     import org.flexunit.asserts.assertNull;
     import org.flexunit.asserts.assertTrue;
     import org.flexunit.async.Async;
+    import org.robotlegs.mvcs.Actor;
     
     import widgets.Zillow.main.events.ZillowEvent;
+    import widgets.Zillow.main.model.vo.ZillowPosting;
     import widgets.Zillow.main.service.ZillowService;
 
     public class ZillowServiceTest
@@ -18,6 +20,7 @@ package widgets.Zillow.test.service
         public function setUp():void
         {
             service = new ZillowService();
+            service.eventDispatcher = new EventDispatcher();
         }
         
         [After]
@@ -29,9 +32,8 @@ package widgets.Zillow.test.service
         [Test(async="true")]
         public function testRegionPostings():void
         {
-			assertTrue("Service is an instance of EventDispatcher", service is EventDispatcher);
-            assertNull(service.results);
-            Async.handleEvent(this, service, ZillowEvent.POSTINGS_READY, onZillowResultsReturned, 500);
+			assertTrue("Service is an instance of Actor", service is Actor);
+            Async.handleEvent(this, service.eventDispatcher, ZillowEvent.POSTINGS_READY, onZillowResultsReturned, 500);
             service.regionPostings("90022");
         }
         
@@ -39,6 +41,7 @@ package widgets.Zillow.test.service
         {
 			//trace(ObjectUtil.toString(service.results));
             assertNotNull("array collection is not null", e.zillowPostings);
+            assertTrue("e.zillowPostings is instance ZillowPosting", e.zillowPostings is ZillowPosting);
 			assertTrue("array collection contains items", e.zillowPostings.makeMeMove.length > 0);
         }
     }
