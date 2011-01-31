@@ -3,18 +3,29 @@
 				   xmlns:s="library://ns.adobe.com/flex/spark"
 				   xmlns:mx="library://ns.adobe.com/flex/mx"
 				   xmlns:viewer="com.esri.viewer.*"
+                   xmlns:main="widgets.Zillow.main.*"
+                   xmlns:ui="widgets.Zillow.main.view.ui.*"
 				   layout="absolute"
 				   width="400"
-				   height="300" xmlns:main="widgets.Zillow.main.*">
+				   height="300"
+				   widgetConfigLoaded="basewidget_widgetConfigLoadedHandler(event)">
 	<fx:Declarations>
 		<!-- Place non-visual elements (e.g., services, value objects) here -->
         <main:ZillowContext contextView="{this}"/>
 	</fx:Declarations>
-    <fx:Script>
-        <![CDATA[
-            // Must have some sort of Zip Code in your Map, or enter your own
-        ]]>
-    </fx:Script>
-    <viewer:WidgetTemplate id="wTemplate">
-    </viewer:WidgetTemplate>
+	<fx:Script>
+		<![CDATA[
+			// Must have some sort of Zip Code in your Map, or enter your own
+			
+			protected function basewidget_widgetConfigLoadedHandler(event:Event):void
+			{
+				// TODO Auto-generated method stub
+                vManager.map = map;
+			}
+		]]>
+	</fx:Script>
+	<fx:Style source="assets/zillowwidget.css" />
+	<viewer:WidgetTemplate id="wTemplate">
+		<ui:ViewManager id="vManager"/>
+	</viewer:WidgetTemplate>
 </viewer:BaseWidget>

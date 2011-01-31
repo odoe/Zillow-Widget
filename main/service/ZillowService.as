@@ -8,6 +8,7 @@ package widgets.Zillow.main.service
 	
 	import widgets.Zillow.main.events.ZillowEvent;
 	import widgets.Zillow.main.model.ZillowModel;
+	import widgets.Zillow.main.model.vo.PostingsSearch;
 	import widgets.Zillow.main.model.vo.ZillowPosting;
 
 	public class ZillowService extends Actor
@@ -30,14 +31,15 @@ package widgets.Zillow.main.service
 		protected var service:HTTPService;
 
 		private const zillowURL:String="http://www.zillow.com/webservice/GetRegionPostings.htm";
-		private const zwsid:String="xxxxxx";
+        // You will need to add your own ZWSID to this application for use
+		private const zwsid:String="xxxxxxxxxxxxxxxxxxxxxx";
 
-		public function regionPostings(zipcode:String="", citystatezip:String="", rental:Boolean=false, postingType:String="all"):void
+		public function regionPostings(critera:PostingsSearch):void
 		{
 			service.url=zillowURL;
 			service.resultFormat = "e4x";
 			service.addEventListener(ResultEvent.RESULT, onRegionPostingsResult);
-			service.send({'zws-id': zwsid, zipcode: zipcode, citystatezip: citystatezip, rental: rental, postingType: postingType});
+			service.send({'zws-id': zwsid, zipcode: critera.zipcode, citystatezip: critera.citystatezip, rental: critera.rental, postingType: critera.postingType});
 		}
 
 		protected function onRegionPostingsResult(event:ResultEvent):void
@@ -52,6 +54,7 @@ package widgets.Zillow.main.service
 		}
 
         protected function parseXML(xmlList:XMLList):void {
+            trace("parse xml results");
             makeMeMove = new XMLListCollection(xmlList[0].makeMeMove.result);
             forSaleByOwner = new XMLListCollection(xmlList[0].forSaleByOwner.result);
             forSaleByAgent = new XMLListCollection(xmlList[0].forSaleByAgent.result);

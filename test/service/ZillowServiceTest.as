@@ -9,6 +9,7 @@ package widgets.Zillow.test.service
     import org.robotlegs.mvcs.Actor;
     
     import widgets.Zillow.main.events.ZillowEvent;
+    import widgets.Zillow.main.model.vo.PostingsSearch;
     import widgets.Zillow.main.model.vo.ZillowPosting;
     import widgets.Zillow.main.service.ZillowService;
 
@@ -34,7 +35,8 @@ package widgets.Zillow.test.service
         {
 			assertTrue("Service is an instance of Actor", service is Actor);
             Async.handleEvent(this, service.eventDispatcher, ZillowEvent.POSTINGS_READY, onZillowResultsReturned, 500);
-            service.regionPostings("90022");
+            var post:PostingsSearch = new PostingsSearch("90022");
+            service.regionPostings(post);
         }
         
         protected function onZillowResultsReturned(e:ZillowEvent, ...args):void
