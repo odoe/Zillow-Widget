@@ -10,10 +10,12 @@ package widgets.Zillow.main
 	import widgets.Zillow.main.events.ZillowEvent;
 	import widgets.Zillow.main.model.ZillowModel;
 	import widgets.Zillow.main.service.ZillowService;
+	import widgets.Zillow.main.view.PostingSearchViewMediator;
+	import widgets.Zillow.main.view.ResultSearchViewMediator;
 	import widgets.Zillow.main.view.ViewManagerMediator;
-	import widgets.Zillow.main.view.ZillowSearchViewMediator;
+	import widgets.Zillow.main.view.ui.PostingSearchView;
+	import widgets.Zillow.main.view.ui.ResultSearchView;
 	import widgets.Zillow.main.view.ui.ViewManager;
-	import widgets.Zillow.main.view.ui.ZillowSearchView;
 
 	public class ZillowContext extends Context
 	{
@@ -36,8 +38,9 @@ package widgets.Zillow.main
             injector.mapSingleton(ZillowService);
             
             // views
-            mediatorMap.mapView(ZillowSearchView, ZillowSearchViewMediator);
+            mediatorMap.mapView(PostingSearchView, PostingSearchViewMediator);
             mediatorMap.mapView(ViewManager, ViewManagerMediator);
+			mediatorMap.mapView(ResultSearchView, ResultSearchViewMediator);
 		}
 	}
 }

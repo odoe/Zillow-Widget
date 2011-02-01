@@ -2,6 +2,7 @@ package widgets.Zillow.main.view.ui
 {
 	import com.esri.ags.Map;
 	import com.esri.ags.layers.GraphicsLayer;
+	import com.esri.ags.utils.GraphicUtil;
 	
 	import flash.events.Event;
 	
@@ -50,7 +51,10 @@ package widgets.Zillow.main.view.ui
         public function updateLayer(graphicProvider:ArrayCollection):void
         {
             if (zillowLayer)
-                zillowLayer.graphicProvider = graphicProvider;
+			{
+				zillowLayer.graphicProvider = graphicProvider;
+				map.extent = GraphicUtil.getGraphicsExtent(graphicProvider.toArray()).expand(2);
+			}
         }
 	}
 }

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Skin xmlns:fx="http://ns.adobe.com/mxml/2009"
+		xmlns:s="library://ns.adobe.com/flex/spark"
+		xmlns:mx="library://ns.adobe.com/flex/mx">
+	<!-- host component -->
+	<fx:Metadata>
+		[HostComponent("widgets.Zillow.main.view.ui.ResultSearchView")]
+	</fx:Metadata>
+
+	<!-- SkinParts
+	name=cityStateZipInput, type=spark.components.TextInput, required=true
+	name=addressInput, type=spark.components.TextInput, required=true
+	name=searchButton, type=spark.components.Button, required=true
+	-->
+	<s:layout>
+		<s:VerticalLayout horizontalAlign="center"
+						  verticalAlign="middle"
+						  gap="10"/>
+	</s:layout>
+	<s:Group>
+		<s:Label text="Address"
+				 left="0"
+				 top="0"/>
+		<s:TextInput id="addressInput"
+					 left="0"
+					 top="15"/>
+	</s:Group>
+
+	<s:Group>
+		<s:Label text="City, State and/or Zip"
+				 left="0"
+				 top="0"/>
+		<s:TextInput id="cityStateZipInput"
+					 left="0"
+					 top="15"/>
+	</s:Group>
+
+	<s:Button id="searchButton"
+			  label="Search"/>
+</s:Skin>

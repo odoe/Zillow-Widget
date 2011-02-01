@@ -3,12 +3,12 @@ package widgets.Zillow.main.view
     import org.robotlegs.mvcs.Mediator;
     
     import widgets.Zillow.main.events.SearchPostingsEvent;
-    import widgets.Zillow.main.view.ui.ZillowSearchView;
+    import widgets.Zillow.main.view.ui.PostingSearchView;
     
-    public class ZillowSearchViewMediator extends Mediator
+    public class PostingSearchViewMediator extends Mediator
     {
         [Inject]
-        public var view:ZillowSearchView;
+        public var view:PostingSearchView;
         
         override public function onRegister():void
         {

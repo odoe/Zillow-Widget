@@ -32,7 +32,7 @@ package widgets.Zillow.main.service
 
 		private const zillowURL:String="http://www.zillow.com/webservice/GetRegionPostings.htm";
         // You will need to add your own ZWSID to this application for use
-		private const zwsid:String="xxxxxxxxxxxxxxxx";
+		private const zwsid:String="xxxxxxxxxxxxxxxxxxx";
 
 		public function regionPostings(critera:PostingsSearch):void
 		{

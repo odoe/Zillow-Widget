@@ -9,21 +9,22 @@ package widgets.Zillow.test.view
     import org.hamcrest.assertThat;
     import org.robotlegs.mvcs.Mediator;
     
-    import widgets.Zillow.main.view.ZillowSearchViewMediator;
-    import widgets.Zillow.main.view.components.skins.ZillowSearchViewSkin;
-    import widgets.Zillow.main.view.ui.ZillowSearchView;
+    import widgets.Zillow.main.view.PostingSearchViewMediator;
+    import widgets.Zillow.main.view.components.skins.PostingSearchViewSkin;
+    import widgets.Zillow.main.view.ui.PostingSearchView;
 
-    public class ZillowSearchViewMediatorTest
+    public class PostingSearchViewMediatorTest
     {
-        protected var view:ZillowSearchView;
-        protected var mediator:ZillowSearchViewMediator;
+        protected var view:PostingSearchView;
+        protected var mediator:PostingSearchViewMediator;
         
         [Before(async, ui)]
         public function setUp():void
         {
-            this.view = new ZillowSearchView();
-            view.setStyle("skinClass", widgets.Zillow.main.view.components.skins.ZillowSearchViewSkin);
-            this.mediator = new ZillowSearchViewMediator();
+            this.view = new PostingSearchView();
+            view.setStyle("skinClass", widgets.Zillow.main.view.components.skins.PostingSearchViewSkin);
+			
+            this.mediator = new PostingSearchViewMediator();
             
             this.mediator.view = view;
             this.mediator.setViewComponent(view);
@@ -52,7 +53,5 @@ package widgets.Zillow.test.view
             assertNotNull("Check that view is not null", mediator.view);
             assertNotNull("Check that mediator view component is not null", mediator.getViewComponent());
         }
-
-        
     }
 }

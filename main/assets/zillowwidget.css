@@ -7,6 +7,10 @@ view|ViewManager {
     skinClass: ClassReference("widgets.Zillow.main.view.components.skins.ViewManagerSkin");
 }
 
-view|ZillowSearchView {
-    skinClass: ClassReference("widgets.Zillow.main.view.components.skins.ZillowSearchViewSkin");
+view|PostingSearchView {
+    skinClass: ClassReference("widgets.Zillow.main.view.components.skins.PostingSearchViewSkin");
+}
+
+view|ResultSearchView {
+	skinClass: ClassReference("widgets.Zillow.main.view.components.skins.ResultSearchViewSkin");
 }

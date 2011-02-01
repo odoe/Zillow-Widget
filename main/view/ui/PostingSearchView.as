@@ -2,6 +2,7 @@ package widgets.Zillow.main.view.ui
 {
     import flash.events.MouseEvent;
     
+    import mx.events.FlexEvent;
     import mx.utils.StringUtil;
     
     import spark.components.Button;
@@ -12,9 +13,9 @@ package widgets.Zillow.main.view.ui
     import widgets.Zillow.main.events.SearchPostingsEvent;
     import widgets.Zillow.main.model.vo.PostingsSearch;
     
-    public class ZillowSearchView extends SkinnableComponent
+    public class PostingSearchView extends SkinnableComponent
     {
-        public function ZillowSearchView()
+        public function PostingSearchView()
         {
             super();
         }
@@ -31,6 +32,8 @@ package widgets.Zillow.main.view.ui
             super.partAdded(partName,instance);
             if (instance == searchButton)
                 searchButton.addEventListener(MouseEvent.CLICK, onSearchButtonClicked);
+			else if (instance == searchInput)
+				searchInput.addEventListener(FlexEvent.ENTER, onInputEntered);
         }
 
         protected override function partRemoved(partName:String, instance:Object):void {
@@ -38,17 +41,28 @@ package widgets.Zillow.main.view.ui
             super.partRemoved(partName,instance);
             if (instance == searchButton)
                 searchButton.removeEventListener(MouseEvent.CLICK, onSearchButtonClicked);
+			else if (instance == searchInput)
+				searchInput.removeEventListener(FlexEvent.ENTER, onInputEntered);
         }
         
+		protected function onInputEntered(event:FlexEvent):void
+		{
+			doSearch();
+		}
+		
         protected function onSearchButtonClicked(event:MouseEvent):void
         {
-            trace("button clicked");
-            var zip:String = StringUtil.trim(searchInput.text);
-            if (zip.length > 0)
-            {
-                var search:PostingsSearch = new PostingsSearch(zip);
-                dispatchEvent(new SearchPostingsEvent(SearchPostingsEvent.POSTINGS_SEARCH, search));
-            }
+			doSearch();
         }
+		
+		protected function doSearch():void
+		{
+			var zip:String = StringUtil.trim(searchInput.text);
+			if (zip.length > 0)
+			{
+				var search:PostingsSearch = new PostingsSearch(zip);
+				dispatchEvent(new SearchPostingsEvent(SearchPostingsEvent.POSTINGS_SEARCH, search));
+			}
+		}
     }
 }

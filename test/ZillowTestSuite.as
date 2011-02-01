@@ -8,7 +8,8 @@ package widgets.Zillow.test
     import widgets.Zillow.test.model.ZillowModelTest;
     import widgets.Zillow.test.service.ZillowServiceTest;
     import widgets.Zillow.test.util.ZillowUtilTest;
-    import widgets.Zillow.test.view.ZillowSearchViewMediatorTest;
+    import widgets.Zillow.test.view.ViewManagerMediatorTest;
+    import widgets.Zillow.test.view.PostingSearchViewMediatorTest;
 
     [Suite]
     [RunWith("org.flexunit.runners.Suite")]
@@ -18,7 +19,8 @@ package widgets.Zillow.test
 		public var zillowUtilTest:ZillowUtilTest;
         public var zillModelTest:ZillowModelTest;
         public var zillowUpdateCommandTest:ZillowUpdateCommandTest;
-        public var zillowSearchViewMediatorTest:ZillowSearchViewMediatorTest;
+        public var zillowSearchViewMediatorTest:PostingSearchViewMediatorTest;
         public var searchPostingsCommandTest:SearchPostingsCommandTest;
+		//public var viewManagerMediatorTest:ViewManagerMediatorTest;
     }
 }

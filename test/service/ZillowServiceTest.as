@@ -34,7 +34,7 @@ package widgets.Zillow.test.service
         public function testRegionPostings():void
         {
 			assertTrue("Service is an instance of Actor", service is Actor);
-            Async.handleEvent(this, service.eventDispatcher, ZillowEvent.POSTINGS_READY, onZillowResultsReturned, 500);
+            Async.handleEvent(this, service.eventDispatcher, ZillowEvent.POSTINGS_READY, onZillowResultsReturned, 1000);
             var post:PostingsSearch = new PostingsSearch("90022");
             service.regionPostings(post);
         }
