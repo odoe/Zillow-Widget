@@ -1,0 +1,32 @@
+<result>
+	<zpid>48749425</zpid>
+	<links>
+		<homedetails>http://www.zillow.com/homedetails/2114-Bigelow-Ave-N-Seattle-WA-98109/48749425_zpid/</homedetails>
+		<graphsanddata>http://www.zillow.com/homedetails/2114-Bigelow-Ave-N-Seattle-WA-98109/48749425_zpid/#charts-and-data</graphsanddata>
+		<mapthishome>http://www.zillow.com/homes/48749425_zpid/</mapthishome>
+		<myestimator>http://www.zillow.com/myestimator/Edit.htm?zprop=48749425</myestimator>
+		<myzestimator deprecated="true">http://www.zillow.com/myestimator/Edit.htm?zprop=48749425</myzestimator>
+		<comparables>http://www.zillow.com/homes/comps/48749425_zpid/</comparables>
+	</links>
+	<address>
+		<street>2114 Bigelow Ave N</street>
+		<zipcode>98109</zipcode>
+		<city>Seattle</city>
+		<state>WA</state>
+		<latitude>47.63793</latitude>
+		<longitude>-122.347936</longitude>
+	</address>
+	<zestimate>
+		<amount currency="USD">1120500</amount>
+		<last-updated>02/01/2011</last-updated>
+		<oneWeekChange deprecated="true" />
+		<valueChange duration="30"
+					 currency="USD">95000</valueChange>
+		<valuationRange>
+			<low currency="USD">896400</low>
+			<high currency="USD">1310985</high>
+		</valuationRange>
+		<percentile>0</percentile>
+	</zestimate>
+	<localRealEstate />
+</result>

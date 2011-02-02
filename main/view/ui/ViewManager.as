@@ -1,6 +1,8 @@
 package widgets.Zillow.main.view.ui
 {
+	import com.esri.ags.Graphic;
 	import com.esri.ags.Map;
+	import com.esri.ags.geometry.MapPoint;
 	import com.esri.ags.layers.GraphicsLayer;
 	import com.esri.ags.utils.GraphicUtil;
 	
@@ -9,6 +11,8 @@ package widgets.Zillow.main.view.ui
 	import mx.collections.ArrayCollection;
 	
 	import spark.components.SkinnableContainer;
+	
+	import widgets.Zillow.main.renderers.DefaultGraphicRenderer;
 
 	[Event(name="mapChange",type="flash.events.Event")]
 	public class ViewManager extends SkinnableContainer
@@ -38,11 +42,9 @@ package widgets.Zillow.main.view.ui
                 {
                     zillowLayer = new GraphicsLayer();
                     zillowLayer.id = "ZillowData";
-                    // TODO - set Zillow Renderer
+                    zillowLayer.renderer = new DefaultGraphicRenderer();
                     if (!map.getLayer(zillowLayer.id))
                         map.addLayer(zillowLayer);
-                    
-                    trace("zillow layer should be in map");
                 }
 				dispatchEvent(new Event(MAP_CHANGE_EVENT));
 			}
@@ -53,7 +55,16 @@ package widgets.Zillow.main.view.ui
             if (zillowLayer)
 			{
 				zillowLayer.graphicProvider = graphicProvider;
-				map.extent = GraphicUtil.getGraphicsExtent(graphicProvider.toArray()).expand(2);
+                if (graphicProvider.length == 1)
+                {
+                    var mp:MapPoint = Graphic(graphicProvider[0]).geometry as MapPoint;
+                    map.centerAt(mp);
+                    map.level = map.lods.length -3;
+                }
+                else if (graphicProvider.length != 0)
+                {
+                    map.extent = GraphicUtil.getGraphicsExtent(graphicProvider.toArray()).expand(2);
+                }
 			}
         }
 	}

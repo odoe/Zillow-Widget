@@ -12,19 +12,19 @@ package widgets.Zillow.main.view
 		
 		override public function onRegister():void
 		{
-			trace("ResultSearchViewMediator registered");
+			//trace("ResultSearchViewMediator registered");
 			eventMap.mapListener(view, GetSearchResultsEvent.GET_SEARCH_RESULTS, onSearchForResult);
 		}
 		
 		override public function onRemove():void
 		{
-			trace("ResultSearchViewMediator removed");
+			//trace("ResultSearchViewMediator removed");
 			eventMap.unmapListener(view, GetSearchResultsEvent.GET_SEARCH_RESULTS, onSearchForResult);
 		}
 		
 		protected function onSearchForResult(event:GetSearchResultsEvent):void
 		{
-			trace("send search for get results");
+			//trace("send search for get results");
 			dispatch(event);
 		}
 	}

@@ -26,7 +26,7 @@ package widgets.Zillow.test.command
 		public function setUp():void
 		{
 			command = new GetSearchResultsCommand();
-			criteria = new GetSearchResults("380 New York Street", "Redlands, CA");
+			criteria = new GetSearchResults("2114 Bigelow Ave", "Seattle, WA");
 			event = new GetSearchResultsEvent(GetSearchResultsEvent.GET_SEARCH_RESULTS, criteria);
 			command.event = event;
 			service = new ZillowService();
@@ -52,8 +52,7 @@ package widgets.Zillow.test.command
 			assertEquals("GetSearchResultsCommand event is same as test event", event, command.event);
 			
 			assertNotNull("Test service should not be null", service);
-			assertNull("Command service should be null", command.service);
-			
+			assertNotNull("Command service should not be null", command.service);
 			
 			assertEquals("Test service should be same as Command service", service, command.service);
 		}

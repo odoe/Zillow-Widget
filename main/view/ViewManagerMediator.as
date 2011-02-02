@@ -12,13 +12,13 @@ package widgets.Zillow.main.view
         
         override public function onRegister():void
         {
-            trace("ViewManagerMediator registered");
+            //trace("ViewManagerMediator registered");
             eventMap.mapListener(eventDispatcher, GraphicsEvent.GRAPHICS_UPDATED, onGraphicsUpdated, GraphicsEvent);
         }
         
         override public function onRemove():void
         {
-            trace("ViewManagerMediator removed");
+            //trace("ViewManagerMediator removed");
             eventMap.unmapListener(eventDispatcher, GraphicsEvent.GRAPHICS_UPDATED, onGraphicsUpdated, GraphicsEvent);
         }
         

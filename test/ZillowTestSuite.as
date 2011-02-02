@@ -5,7 +5,7 @@ package widgets.Zillow.test
     import widgets.Zillow.main.service.ZillowService;
     import widgets.Zillow.test.command.GetSearchResultsCommandTest;
     import widgets.Zillow.test.command.SearchPostingsCommandTest;
-    import widgets.Zillow.test.command.ZillowUpdateCommandTest;
+    import widgets.Zillow.test.command.RegionPostingsUpdateCommandTest;
     import widgets.Zillow.test.model.ZillowModelTest;
     import widgets.Zillow.test.service.ZillowServiceTest;
     import widgets.Zillow.test.util.ZillowUtilTest;
@@ -19,7 +19,7 @@ package widgets.Zillow.test
         public var zillowServiceTest:ZillowServiceTest;
 		public var zillowUtilTest:ZillowUtilTest;
         public var zillModelTest:ZillowModelTest;
-        public var zillowUpdateCommandTest:ZillowUpdateCommandTest;
+        public var zillowUpdateCommandTest:RegionPostingsUpdateCommandTest;
         public var zillowSearchViewMediatorTest:PostingSearchViewMediatorTest;
         public var searchPostingsCommandTest:SearchPostingsCommandTest;
 		//public var viewManagerMediatorTest:ViewManagerMediatorTest;

@@ -11,14 +11,14 @@ package widgets.Zillow.test.command
     import org.hamcrest.assertThat;
     import org.robotlegs.mvcs.Command;
     
-    import widgets.Zillow.main.command.ZillowUpdateCommand;
+    import widgets.Zillow.main.command.RegionPostingsUpdateCommand;
     import widgets.Zillow.main.events.ZillowEvent;
     import widgets.Zillow.main.model.ZillowModel;
     import widgets.Zillow.main.model.vo.ZillowPosting;
     
-    public class ZillowUpdateCommandTest extends Command
+    public class RegionPostingsUpdateCommandTest extends Command
     {
-        protected var command:ZillowUpdateCommand;
+        protected var command:RegionPostingsUpdateCommand;
         protected var event:ZillowEvent;
         protected var zPosting:ZillowPosting;
         protected var model:ZillowModel;
@@ -26,7 +26,7 @@ package widgets.Zillow.test.command
         [Before]
         public function setUp():void
         {
-            command = new ZillowUpdateCommand();
+            command = new RegionPostingsUpdateCommand();
             model = new ZillowModel();
             model.eventDispatcher = new EventDispatcher();
         }

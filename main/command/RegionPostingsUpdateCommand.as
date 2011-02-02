@@ -9,7 +9,7 @@ package widgets.Zillow.main.command
     import widgets.Zillow.main.model.vo.ZillowPosting;
     import widgets.Zillow.main.util.ZillowUtil;
     
-    public class ZillowUpdateCommand extends Command
+    public class RegionPostingsUpdateCommand extends Command
     {
         [Inject]
         public var event:ZillowEvent;
@@ -23,12 +23,12 @@ package widgets.Zillow.main.command
             if(postings)
             {
                 model.zillowPosting = postings;
-                var ac:ArrayCollection = ZillowUtil.toGraphics(postings.forRent, ac);
-                ac = ZillowUtil.toGraphics(postings.forRent, ac);
-                ac = ZillowUtil.toGraphics(postings.forSaleByAgent, ac);
-                ac = ZillowUtil.toGraphics(postings.forSaleByOwner, ac);
-                ac = ZillowUtil.toGraphics(postings.makeMeMove, ac);
-                ac = ZillowUtil.toGraphics(postings.reportForSale, ac);
+                var ac:ArrayCollection = ZillowUtil.regionPostingsToGraphics(postings.forRent, ac);
+                ac = ZillowUtil.regionPostingsToGraphics(postings.forRent, ac);
+                ac = ZillowUtil.regionPostingsToGraphics(postings.forSaleByAgent, ac);
+                ac = ZillowUtil.regionPostingsToGraphics(postings.forSaleByOwner, ac);
+                ac = ZillowUtil.regionPostingsToGraphics(postings.makeMeMove, ac);
+                ac = ZillowUtil.regionPostingsToGraphics(postings.reportForSale, ac);
                 
                 model.graphicsCollection = ac;
             }

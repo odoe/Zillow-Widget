@@ -3,13 +3,13 @@
 				   xmlns:s="library://ns.adobe.com/flex/spark"
 				   xmlns:mx="library://ns.adobe.com/flex/mx"
 				   xmlns:viewer="com.esri.viewer.*"
-                   xmlns:main="widgets.Zillow.main.*"
-                   xmlns:ui="widgets.Zillow.main.view.ui.*"
+				   xmlns:main="widgets.Zillow.main.*"
+				   xmlns:ui="widgets.Zillow.main.view.ui.*"
 				   layout="absolute"
 				   widgetConfigLoaded="basewidget_widgetConfigLoadedHandler(event)">
 	<fx:Declarations>
 		<!-- Place non-visual elements (e.g., services, value objects) here -->
-        <main:ZillowContext contextView="{this}"/>
+		<main:ZillowContext contextView="{this}" />
 	</fx:Declarations>
 	<fx:Script>
 		<![CDATA[
@@ -18,12 +18,18 @@
 			protected function basewidget_widgetConfigLoadedHandler(event:Event):void
 			{
 				// TODO Auto-generated method stub
-                vManager.map = map;
+				vManager.map = map;
 			}
 		]]>
 	</fx:Script>
 	<fx:Style source="assets/zillowwidget.css" />
-	<viewer:WidgetTemplate id="wTemplate" width="400" height="300">
-		<ui:ViewManager id="vManager" width="100%" height="100%"/>
+	<viewer:WidgetTemplate id="wTemplate"
+						   width="300"
+						   height="300"
+						   minHeight="300"
+						   minWidth="300">
+		<ui:ViewManager id="vManager"
+						width="100%"
+						height="100%" />
 	</viewer:WidgetTemplate>
 </viewer:BaseWidget>

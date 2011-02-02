@@ -5,9 +5,11 @@ package widgets.Zillow.main
 	import org.robotlegs.mvcs.Context;
 	
 	import widgets.Zillow.main.command.GetSearchResultsCommand;
+	import widgets.Zillow.main.command.RegionPostingsUpdateCommand;
 	import widgets.Zillow.main.command.SearchPostingsCommand;
-	import widgets.Zillow.main.command.ZillowUpdateCommand;
+	import widgets.Zillow.main.command.SearchResultsUpdateCommand;
 	import widgets.Zillow.main.events.GetSearchResultsEvent;
+	import widgets.Zillow.main.events.ReturnedSearchResultsEvent;
 	import widgets.Zillow.main.events.SearchPostingsEvent;
 	import widgets.Zillow.main.events.ZillowEvent;
 	import widgets.Zillow.main.model.ZillowModel;
@@ -31,9 +33,10 @@ package widgets.Zillow.main
 		{
 			//TODO Auto-generated method stub
             // commands
-            commandMap.mapEvent(ZillowEvent.POSTINGS_READY, ZillowUpdateCommand, ZillowEvent);
+            commandMap.mapEvent(ZillowEvent.POSTINGS_READY, RegionPostingsUpdateCommand, ZillowEvent);
             commandMap.mapEvent(SearchPostingsEvent.POSTINGS_SEARCH, SearchPostingsCommand, SearchPostingsEvent);
 			commandMap.mapEvent(GetSearchResultsEvent.GET_SEARCH_RESULTS, GetSearchResultsCommand, GetSearchResultsEvent);
+            commandMap.mapEvent(ReturnedSearchResultsEvent.SEARCH_RESULTS_RETURNED, SearchResultsUpdateCommand, ReturnedSearchResultsEvent);
             
             // model
             injector.mapSingleton(ZillowModel);

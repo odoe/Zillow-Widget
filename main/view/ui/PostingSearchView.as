@@ -57,11 +57,20 @@ package widgets.Zillow.main.view.ui
 		
 		protected function doSearch():void
 		{
-			var zip:String = StringUtil.trim(searchInput.text);
-			if (zip.length > 0)
+			var input:String = StringUtil.trim(searchInput.text);
+            
+			if (input.length > 0)
 			{
-				var search:PostingsSearch = new PostingsSearch(zip);
-				dispatchEvent(new SearchPostingsEvent(SearchPostingsEvent.POSTINGS_SEARCH, search));
+                var search:PostingsSearch;
+                if (!isNaN(Number(input)))
+                {
+                    search = new PostingsSearch(input);
+                }
+                else
+                {
+                    search = new PostingsSearch("", input);
+                }
+                dispatchEvent(new SearchPostingsEvent(SearchPostingsEvent.POSTINGS_SEARCH, search));
 			}
 		}
     }

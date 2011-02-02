@@ -7,6 +7,7 @@ package widgets.Zillow.main.service
 	
 	import org.robotlegs.mvcs.Actor;
 	
+	import widgets.Zillow.main.events.ReturnedSearchResultsEvent;
 	import widgets.Zillow.main.events.ZillowEvent;
 	import widgets.Zillow.main.model.ZillowModel;
 	import widgets.Zillow.main.model.vo.GetSearchResults;
@@ -36,7 +37,7 @@ package widgets.Zillow.main.service
 		private const getRegionPostingsURL:String = "http://www.zillow.com/webservice/GetRegionPostings.htm";
 		private const getSearchResultsURL:String = "http://www.zillow.com/webservice/GetSearchResults.htm";
         // You will need to add your own ZWSID to this application for use
-		private const zwsid:String="xxxxxxxxxxxxxxxxx";
+		private const zwsid:String="xxxxxxxxxxxxxxxxxxxxxxxxxxx";
 		
 		public function getRegionPostings(criteria:PostingsSearch):void
 		{
@@ -72,12 +73,17 @@ package widgets.Zillow.main.service
 		protected function onSearchResults(event:ResultEvent):void
 		{
 			service.removeEventListener(ResultEvent.RESULT, onSearchResults);
-			trace("search results returned");
-			trace(ObjectUtil.toString(event.result));
+            if (event.result)
+            {
+                // should return a single result
+                // need to traverse deep into the XML to prevent errors
+                var xmlList:XMLList = event.result.response.results.result;
+                var resultsCollection:XMLListCollection = new XMLListCollection(xmlList);
+                dispatch(new ReturnedSearchResultsEvent(ReturnedSearchResultsEvent.SEARCH_RESULTS_RETURNED, resultsCollection));
+            }
 		}
 		
         protected function parseRegionPostingsXML(xmlList:XMLList):void {
-            trace("parse xml results");
             makeMeMove = new XMLListCollection(xmlList[0].makeMeMove.result);
             forSaleByOwner = new XMLListCollection(xmlList[0].forSaleByOwner.result);
             forSaleByAgent = new XMLListCollection(xmlList[0].forSaleByAgent.result);
