@@ -19,7 +19,7 @@
                 if (configXML)
                 {
                     var zwsid:String = configXML.zwsid;
-                    vManager.zwsid = zwsid;
+                    vManager.zwsid = "X1-ZWz1bx87atjksr_ako3m";
                     vManager.map = map;
                 }
 			}
