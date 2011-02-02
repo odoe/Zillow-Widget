@@ -5,7 +5,7 @@ package widgets.Zillow.main.service
 
 	public interface IService
 	{
-		function getRegionPostings(criteria:PostingsSearch):void;
-		function getSearchResults(criteria:GetSearchResults):void;
+		function getRegionPostings(zwsid:String, criteria:PostingsSearch):void;
+		function getSearchResults(zwsid:String, criteria:GetSearchResults):void;
 	}
 }

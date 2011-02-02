@@ -10,6 +10,7 @@ package widgets.Zillow.test.command
 	
 	import widgets.Zillow.main.command.GetSearchResultsCommand;
 	import widgets.Zillow.main.events.GetSearchResultsEvent;
+	import widgets.Zillow.main.model.ZillowModel;
 	import widgets.Zillow.main.model.vo.GetSearchResults;
 	import widgets.Zillow.main.service.IService;
 	import widgets.Zillow.main.service.ZillowService;
@@ -19,6 +20,7 @@ package widgets.Zillow.test.command
 		protected var command:GetSearchResultsCommand;
 		protected var event:GetSearchResultsEvent;
 		protected var criteria:GetSearchResults;
+        protected var model:ZillowModel;
 
 		public var service:ZillowService;
 		
@@ -26,12 +28,16 @@ package widgets.Zillow.test.command
 		public function setUp():void
 		{
 			command = new GetSearchResultsCommand();
+            model = new ZillowModel();
+            // MUST ADD YOUR OWN ZWSID FOR TESTS PASS
 			criteria = new GetSearchResults("2114 Bigelow Ave", "Seattle, WA");
 			event = new GetSearchResultsEvent(GetSearchResultsEvent.GET_SEARCH_RESULTS, criteria);
 			command.event = event;
 			service = new ZillowService();
 			service.eventDispatcher = new EventDispatcher();
 			command.service = service;
+            command.model = model;
+            
 		}
 		
 		[After]
@@ -41,6 +47,7 @@ package widgets.Zillow.test.command
 			service = null;
 			event = null;
 			criteria = null;
+            model = null;
 		}
 		
 		[Test]

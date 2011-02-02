@@ -13,6 +13,7 @@ package widgets.Zillow.test.command
     import widgets.Zillow.main.command.SearchPostingsCommand;
     import widgets.Zillow.main.events.SearchPostingsEvent;
     import widgets.Zillow.main.events.ZillowEvent;
+    import widgets.Zillow.main.model.ZillowModel;
     import widgets.Zillow.main.model.vo.PostingsSearch;
     import widgets.Zillow.main.model.vo.ZillowPosting;
     import widgets.Zillow.main.service.ZillowService;
@@ -23,16 +24,21 @@ package widgets.Zillow.test.command
         protected var event:SearchPostingsEvent;
         protected var criteria:PostingsSearch;
         protected var service:ZillowService;
+        protected var model:ZillowModel;
         
         [Before]
         public function setUp():void
         {
             command = new SearchPostingsCommand();
+            model = new ZillowModel();
             service = new ZillowService();
             service.eventDispatcher = new EventDispatcher();
-            criteria = new PostingsSearch("90022");
+            // MUST ADD YOUR OWN ZWSID FOR TESTS PASS
+            criteria = new PostingsSearch("90023");
+            model.zwsid = "";
             event = new SearchPostingsEvent(SearchPostingsEvent.POSTINGS_SEARCH, criteria);
             command.event = event;
+            command.model = model;
         }
         
         [After]
@@ -42,6 +48,7 @@ package widgets.Zillow.test.command
             service = null;
             event = null;
             criteria = null;
+            model = null;
         }
         
         [Test(async)]

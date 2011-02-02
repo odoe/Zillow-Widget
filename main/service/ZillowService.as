@@ -37,9 +37,9 @@ package widgets.Zillow.main.service
 		private const getRegionPostingsURL:String = "http://www.zillow.com/webservice/GetRegionPostings.htm";
 		private const getSearchResultsURL:String = "http://www.zillow.com/webservice/GetSearchResults.htm";
         // You will need to add your own ZWSID to this application for use
-		private const zwsid:String="xxxxxxxxxxxxxxxxxxxxxxxxxxx";
+		//private const zwsid:String="xxxxxxxxxxxxxxxxxxxxxxxxxxx";
 		
-		public function getRegionPostings(criteria:PostingsSearch):void
+		public function getRegionPostings(zwsid:String, criteria:PostingsSearch):void
 		{
 			service.url=getRegionPostingsURL;
 			service.addEventListener(ResultEvent.RESULT, onRegionPostingsResult);
@@ -50,7 +50,7 @@ package widgets.Zillow.main.service
 							postingType: criteria.postingType});
 		}
 		
-		public function getSearchResults(criteria:GetSearchResults):void
+		public function getSearchResults(zwsid:String, criteria:GetSearchResults):void
 		{
 			service.url = getSearchResultsURL;
 			service.addEventListener(ResultEvent.RESULT, onSearchResults);

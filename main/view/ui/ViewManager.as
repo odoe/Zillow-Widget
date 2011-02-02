@@ -12,6 +12,7 @@ package widgets.Zillow.main.view.ui
 	
 	import spark.components.SkinnableContainer;
 	
+	import widgets.Zillow.main.events.ZillowIdEvent;
 	import widgets.Zillow.main.renderers.DefaultGraphicRenderer;
 
 	[Event(name="mapChange",type="flash.events.Event")]
@@ -66,6 +67,12 @@ package widgets.Zillow.main.view.ui
                     map.extent = GraphicUtil.getGraphicsExtent(graphicProvider.toArray()).expand(2);
                 }
 			}
+        }
+        
+        public function set zwsid(value:String):void
+        {
+            if (value && value.length > 1)
+                dispatchEvent(new ZillowIdEvent(ZillowIdEvent.ZILLOW_ID_READY, value));
         }
 	}
 }

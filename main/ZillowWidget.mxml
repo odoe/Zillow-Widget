@@ -13,12 +13,15 @@
 	</fx:Declarations>
 	<fx:Script>
 		<![CDATA[
-			// Must have some sort of Zip Code in your Map, or enter your own
-			
+            
 			protected function basewidget_widgetConfigLoadedHandler(event:Event):void
 			{
-				// TODO Auto-generated method stub
-				vManager.map = map;
+                if (configXML)
+                {
+                    var zwsid:String = configXML.zwsid;
+                    vManager.zwsid = zwsid;
+                    vManager.map = map;
+                }
 			}
 		]]>
 	</fx:Script>

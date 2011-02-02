@@ -45,8 +45,9 @@ package widgets.Zillow.test.service
         public function testRegionPostings():void
         {
             Async.handleEvent(this, service.eventDispatcher, ZillowEvent.POSTINGS_READY, onZillowResultsReturned, 1000);
+            // MUST ADD YOUR OWN ZWSID FOR TESTS PASS
             var post:PostingsSearch = new PostingsSearch("90022");
-            service.getRegionPostings(post);
+            service.getRegionPostings("", post);
         }
         
         [Test(async="true")]
@@ -54,8 +55,9 @@ package widgets.Zillow.test.service
         {
             //fail("test not ready yet");
             Async.handleEvent(this, service.eventDispatcher, ReturnedSearchResultsEvent.SEARCH_RESULTS_RETURNED, onSearchResultsReturned, 1000);
+            // MUST ADD YOUR OWN ZWSID FOR TESTS PASS
             var criteria:GetSearchResults = new GetSearchResults("2114 Bigelow Ave", "Seattle, WA");
-            service.getSearchResults(criteria);
+            service.getSearchResults("", criteria);
         }
         
         protected function onSearchResultsReturned(e:ReturnedSearchResultsEvent, ...args):void

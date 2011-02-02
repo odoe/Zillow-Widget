@@ -8,10 +8,12 @@ package widgets.Zillow.main
 	import widgets.Zillow.main.command.RegionPostingsUpdateCommand;
 	import widgets.Zillow.main.command.SearchPostingsCommand;
 	import widgets.Zillow.main.command.SearchResultsUpdateCommand;
+	import widgets.Zillow.main.command.ZillowIdReadyCommand;
 	import widgets.Zillow.main.events.GetSearchResultsEvent;
 	import widgets.Zillow.main.events.ReturnedSearchResultsEvent;
 	import widgets.Zillow.main.events.SearchPostingsEvent;
 	import widgets.Zillow.main.events.ZillowEvent;
+	import widgets.Zillow.main.events.ZillowIdEvent;
 	import widgets.Zillow.main.model.ZillowModel;
 	import widgets.Zillow.main.service.IService;
 	import widgets.Zillow.main.service.ZillowService;
@@ -33,6 +35,7 @@ package widgets.Zillow.main
 		{
 			//TODO Auto-generated method stub
             // commands
+            commandMap.mapEvent(ZillowIdEvent.ZILLOW_ID_READY, ZillowIdReadyCommand, ZillowIdEvent, true);
             commandMap.mapEvent(ZillowEvent.POSTINGS_READY, RegionPostingsUpdateCommand, ZillowEvent);
             commandMap.mapEvent(SearchPostingsEvent.POSTINGS_SEARCH, SearchPostingsCommand, SearchPostingsEvent);
 			commandMap.mapEvent(GetSearchResultsEvent.GET_SEARCH_RESULTS, GetSearchResultsCommand, GetSearchResultsEvent);

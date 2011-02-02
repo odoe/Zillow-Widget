@@ -15,8 +15,10 @@ package widgets.Zillow.main.model
 		{
 			super();
 		}
+        
+        public var zwsid:String;
+        
 		private var _graphicsCollection:ArrayCollection;
-		
 		
 		public function get graphicsCollection():ArrayCollection
 		{

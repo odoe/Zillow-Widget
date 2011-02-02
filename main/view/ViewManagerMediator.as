@@ -3,6 +3,7 @@ package widgets.Zillow.main.view
     import org.robotlegs.mvcs.Mediator;
     
     import widgets.Zillow.main.events.GraphicsEvent;
+    import widgets.Zillow.main.events.ZillowIdEvent;
     import widgets.Zillow.main.view.ui.ViewManager;
     
     public class ViewManagerMediator extends Mediator
@@ -14,6 +15,7 @@ package widgets.Zillow.main.view
         {
             //trace("ViewManagerMediator registered");
             eventMap.mapListener(eventDispatcher, GraphicsEvent.GRAPHICS_UPDATED, onGraphicsUpdated, GraphicsEvent);
+            eventMap.mapListener(view, ZillowIdEvent.ZILLOW_ID_READY, onZillowIdReady, ZillowIdEvent);
         }
         
         override public function onRemove():void
@@ -25,6 +27,11 @@ package widgets.Zillow.main.view
         protected function onGraphicsUpdated(event:GraphicsEvent):void
         {
             view.updateLayer(event.graphicsCollection);
+        }
+        
+        protected function onZillowIdReady(event:ZillowIdEvent):void
+        {
+            dispatch(event);
         }
     }
 }
