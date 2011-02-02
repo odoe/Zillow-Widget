@@ -4,7 +4,7 @@
 		xmlns:mx="library://ns.adobe.com/flex/mx">
 	<!-- host component -->
 	<fx:Metadata>
-		[HostComponent("widgets.Zillow.main.view.ui.ResultSearchView")]
+		[HostComponent("widgets.Zillow.main.view.ui.GetSearchResultsView")]
 	</fx:Metadata>
 
 	<!-- SkinParts

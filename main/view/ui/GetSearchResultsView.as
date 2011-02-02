@@ -10,9 +10,9 @@ package widgets.Zillow.main.view.ui
 	import spark.components.supportClasses.SkinnableComponent;
 	
 	import widgets.Zillow.main.events.GetSearchResultsEvent;
-	import widgets.Zillow.main.model.vo.ResultsSearch;
+	import widgets.Zillow.main.model.vo.GetSearchResults;
 	
-	public class ResultSearchView extends SkinnableComponent
+	public class GetSearchResultsView extends SkinnableComponent
 	{
 		[SkinPart(required="true")]
 		public var addressInput:TextInput;
@@ -23,7 +23,7 @@ package widgets.Zillow.main.view.ui
 		[SkinPart(required="true")]
 		public var searchButton:Button;
 		
-		public function ResultSearchView()
+		public function GetSearchResultsView()
 		{
 			super();
 		}
@@ -62,7 +62,7 @@ package widgets.Zillow.main.view.ui
 			var address:String = StringUtil.trim(addressInput.text);
 			if (csz.length > 0 && address.length > 0)
 			{
-				var search:ResultsSearch = new ResultsSearch(address, csz);
+				var search:GetSearchResults = new GetSearchResults(address, csz);
 				dispatchEvent(new GetSearchResultsEvent(GetSearchResultsEvent.GET_SEARCH_RESULTS, search));
 			}
 		}

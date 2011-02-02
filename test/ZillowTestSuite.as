@@ -3,13 +3,14 @@ package widgets.Zillow.test
     import org.flexunit.asserts.assertNotNull;
     
     import widgets.Zillow.main.service.ZillowService;
+    import widgets.Zillow.test.command.GetSearchResultsCommandTest;
     import widgets.Zillow.test.command.SearchPostingsCommandTest;
     import widgets.Zillow.test.command.ZillowUpdateCommandTest;
     import widgets.Zillow.test.model.ZillowModelTest;
     import widgets.Zillow.test.service.ZillowServiceTest;
     import widgets.Zillow.test.util.ZillowUtilTest;
-    import widgets.Zillow.test.view.ViewManagerMediatorTest;
     import widgets.Zillow.test.view.PostingSearchViewMediatorTest;
+    import widgets.Zillow.test.view.ViewManagerMediatorTest;
 
     [Suite]
     [RunWith("org.flexunit.runners.Suite")]
@@ -22,5 +23,6 @@ package widgets.Zillow.test
         public var zillowSearchViewMediatorTest:PostingSearchViewMediatorTest;
         public var searchPostingsCommandTest:SearchPostingsCommandTest;
 		//public var viewManagerMediatorTest:ViewManagerMediatorTest;
+		public var getSearchResultsCommandTest:GetSearchResultsCommandTest;
     }
 }

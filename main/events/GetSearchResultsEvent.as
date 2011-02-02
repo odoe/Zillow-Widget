@@ -2,20 +2,20 @@ package widgets.Zillow.main.events
 {
 	import flash.events.Event;
 	
-	import widgets.Zillow.main.model.vo.ResultsSearch;
+	import widgets.Zillow.main.model.vo.GetSearchResults;
 	
 	public class GetSearchResultsEvent extends Event
 	{
 		public static const GET_SEARCH_RESULTS:String = "getSearchResults";
 		
-		private var _criteria:ResultsSearch;
+		private var _criteria:GetSearchResults;
 		
-		public function get criteria():ResultsSearch
+		public function get criteria():GetSearchResults
 		{
 			return _criteria;
 		}
 		
-		public function GetSearchResultsEvent(type:String, criteria:ResultsSearch)
+		public function GetSearchResultsEvent(type:String, criteria:GetSearchResults)
 		{
 			super(type, true, true);
 			_criteria = criteria;
