@@ -147,6 +147,7 @@ package widgets.Zillow.main.util
 		private static function onGraphicsRollOut(event:MouseEvent):void
 		{
 			CursorManager.removeCursor(cursorID);
+            CursorManager.removeAllCursors();
 		}
 		
 		private static function onGraphiscRemovedFromStage(event:Event):void
