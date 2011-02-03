@@ -3,10 +3,13 @@ package widgets.Zillow.main.view.ui
     import flash.events.MouseEvent;
     
     import mx.events.FlexEvent;
+    import mx.utils.ObjectUtil;
     import mx.utils.StringUtil;
     
     import spark.components.Button;
     import spark.components.DataGroup;
+    import spark.components.DropDownList;
+    import spark.components.RadioButton;
     import spark.components.TextInput;
     import spark.components.supportClasses.SkinnableComponent;
     
@@ -26,6 +29,11 @@ package widgets.Zillow.main.view.ui
         [SkinPart(required="true")]
         public var searchButton:Button;
         
+        [SkinPart(required="true")]
+        public var rbYes:RadioButton;
+        
+        [SkinPart(required="true")]
+        public var ddlType:DropDownList;
         
         protected override function partAdded(partName:String, instance:Object):void {
             //TODO Auto-generated method stub
@@ -61,14 +69,16 @@ package widgets.Zillow.main.view.ui
             
 			if (input.length > 0)
 			{
+                var rentals:Boolean = rbYes.selected;
+                var type:String = ddlType.selectedItem.data;
                 var search:PostingsSearch;
                 if (!isNaN(Number(input)))
                 {
-                    search = new PostingsSearch(input);
+                    search = new PostingsSearch(input, "", rentals, type);
                 }
                 else
                 {
-                    search = new PostingsSearch("", input);
+                    search = new PostingsSearch("", input, rentals, type);
                 }
                 dispatchEvent(new SearchPostingsEvent(SearchPostingsEvent.POSTINGS_SEARCH, search));
 			}

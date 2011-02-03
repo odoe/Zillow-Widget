@@ -28,8 +28,8 @@
 	<fx:Style source="assets/zillowwidget.css" />
 	<viewer:WidgetTemplate id="wTemplate"
 						   width="300"
-						   height="300"
-						   minHeight="300"
+						   height="315"
+						   minHeight="315"
 						   minWidth="300">
 		<ui:ViewManager id="vManager"
 						width="100%"

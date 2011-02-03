@@ -22,7 +22,7 @@ package widgets.Zillow.main.util
 		
 		private static var cursorID:int;
 		
-		public static function regionPostingsToGraphics(list:XMLListCollection, destination:ArrayCollection):ArrayCollection
+		public static function regionPostingsToGraphics(list:XMLListCollection, destination:ArrayCollection, listingType:String=""):ArrayCollection
 		{
 			if (!destination)
 				destination = new ArrayCollection();
@@ -32,7 +32,7 @@ package widgets.Zillow.main.util
 				for each (var result:XML in list)
 				{
 					var attr:Object = {};
-					attr.type = "regionPostings";
+					attr.listingType = listingType;
 					attr.zpid = result.zpid;
 					// general property data
 					attr.price = result.price;

@@ -18,6 +18,48 @@
 	</s:layout>
 	<s:Label text="Enter City and State and/or Zip Code" />
 	<s:TextInput id="searchInput" />
+
+	<s:HGroup verticalAlign="middle"
+			  horizontalAlign="center"
+			  paddingBottom="5"
+			  paddingLeft="2"
+			  paddingRight="2"
+			  paddingTop="5">
+        <s:Label text="Property Types" />
+		<s:DropDownList id="ddlType"
+						labelField="name"
+						width="140"
+						selectedIndex="0">
+			<s:dataProvider>
+				<s:ArrayList>
+					<fx:Object data="all"
+							   name="All" />
+					<fx:Object data="fsbo"
+                               name="For Sale By Owner" />
+					<fx:Object data="fsba"
+							   name="For Sale By Agent" />
+					<fx:Object data="mmm"
+							   name="Make Me Move®" />
+				</s:ArrayList>
+			</s:dataProvider>
+		</s:DropDownList>
+	</s:HGroup>
+    
+    <s:HGroup verticalAlign="middle"
+              horizontalAlign="center"
+              paddingBottom="5"
+              paddingLeft="2"
+              paddingRight="2"
+              paddingTop="5">
+        <s:Label text="Show Rentals?" />
+        <s:RadioButton id="rbYes"
+                       label="Yes"
+                       selected="false" />
+        <s:RadioButton id="rbNo"
+                       label="No"
+                       selected="true" />
+    </s:HGroup>
+    
 	<s:Button id="searchButton"
 			  label="Search" />
 </s:Skin>

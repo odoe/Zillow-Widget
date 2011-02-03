@@ -3,214 +3,219 @@
 				xmlns:s="library://ns.adobe.com/flex/spark"
 				xmlns:mx="library://ns.adobe.com/flex/mx"
 				autoDrawBackground="true">
-    <fx:Declarations>
-        <mx:CurrencyFormatter id="curFormatter" currencySymbol="$" thousandsSeparatorTo=","/>
-    </fx:Declarations>
+	<fx:Declarations>
+		<mx:CurrencyFormatter id="curFormatter"
+							  currencySymbol="$"
+							  thousandsSeparatorTo="," />
+	</fx:Declarations>
 	<s:states>
 		<s:State name="normal" />
 		<s:State name="hovered" />
 	</s:states>
-    <s:layout>
-        <s:VerticalLayout gap="5" paddingBottom="10"
-                          paddingLeft="10"
-                          paddingRight="10"
-                          paddingTop="10"
-                          verticalAlign="middle" />
-    </s:layout>
-    <!-- Address and Zestimate -->
-    <s:Group>
-        <s:layout>
-            <s:HorizontalLayout gap="5"/>
-        </s:layout>
-        <!-- Address Info -->
-        <s:Group width="100%"
-                 height="100%">
-            <!-- border/background rectangle -->
-            <s:Rect left="0"
-                    right="0"
-                    top="0"
-                    bottom="0"
-                    radiusX="4"
-                    radiusY="4">
-                <s:stroke>
-                    <mx:SolidColorStroke alpha="{getStyle('borderAlpha')}"
-                                         color="{getStyle('borderColor')}"
-                                         weight="1" />
-                </s:stroke>
-                <s:fill>
-                    <mx:SolidColor alpha="0.3"
-                                   alpha.hovered="0.8"
-                                   color.hovered="{getStyle('rollOverColor')}"
-                                   color.normal="{getStyle('contentBackgroundColor')}" />
-                </s:fill>
-            </s:Rect>
-            <s:Group width="100%"
-                     height="100%">
-                <s:layout>
-                    <s:VerticalLayout gap="5"
-                                      paddingBottom="10"
-                                      paddingLeft="10"
-                                      paddingRight="10"
-                                      paddingTop="10"
-                                      verticalAlign="top" />
-                </s:layout>
-                <s:Label text="Property Address"
-                         fontSize="12"
-                         fontWeight="bold" />
-                <s:Label text="{data.street}"
-                         fontSize="10" />
-                <s:Label text="{data.city}, {data.state}"
-                         fontSize="10" />
-                <s:Label text="{data.zipcode}"
-                         fontSize="10" />
-            </s:Group>
-        </s:Group>
-        <!-- Zestimate Data -->
-        <s:Group width="100%"
-                 height="100%">
-            <!-- border/background rectangle -->
-            <s:Rect left="0"
-                    right="0"
-                    top="0"
-                    bottom="0"
-                    radiusX="4"
-                    radiusY="4">
-                <s:stroke>
-                    <mx:SolidColorStroke alpha="{getStyle('borderAlpha')}"
-                                         color="{getStyle('borderColor')}"
-                                         weight="1" />
-                </s:stroke>
-                <s:fill>
-                    <mx:SolidColor alpha="0.3"
-                                   alpha.hovered="0.8"
-                                   color.hovered="{getStyle('rollOverColor')}"
-                                   color.normal="{getStyle('contentBackgroundColor')}" />
-                </s:fill>
-            </s:Rect>
-            <s:Group width="100%"
-                     height="100%">
-                <s:layout>
-                    <s:VerticalLayout gap="5"
-                                      paddingBottom="10"
-                                      paddingLeft="10"
-                                      paddingRight="10"
-                                      paddingTop="10"
-                                      verticalAlign="middle" />
-                </s:layout>
-                <s:Label text="Zestimate"
-                         fontSize="12"
-                         fontWeight="bold" />
-                <s:Label text="Amount: {curFormatter.format(data.zestimateAmount)}"
-                         fontSize="10" />
-                <s:Label text="Last Changed: {data.zestimateLastUpdated}"
-                         fontSize="10" />
-                <s:Label text="Value Change: {curFormatter.format(data.zestimateValueChange)}"
-                         fontSize="10" />
-                <s:Label text="Value Change Duration: {data.attr.zestimateValueChangeDuration} days"
-                         fontSize="10" />
-                <s:Label text="Value Range (low): {curFormatter.format(data.zestimateValuationRangeLow)}"
-                         fontSize="10" />
-                <s:Label text="Value Range (high): {curFormatter.format(data.zestimateValuationRangeHigh)}"
-                         fontSize="10" />
-                <s:Label text="Percentile: {data.zestimatePercentile}"
-                         fontSize="10" />
-            </s:Group>
-        </s:Group>
-    </s:Group>
-   
-    <!-- External Links -->
-    <s:Group width="100%" height="100%">
-        <!-- border/background rectangle -->
-        <s:Rect left="0"
-                right="0"
-                top="0"
-                bottom="0"
-                radiusX="4"
-                radiusY="4">
-            <s:stroke>
-                <mx:SolidColorStroke alpha="{getStyle('borderAlpha')}"
-                                     color="{getStyle('borderColor')}"
-                                     weight="1" />
-            </s:stroke>
-            <s:fill>
-                <mx:SolidColor alpha="0.5"
-                               alpha.hovered="0.8"
-                               color.hovered="0xfffafa"
-                               color.normal="0xf5f5f5" />
-            </s:fill>
-        </s:Rect>
-        <s:Group width="100%" height="100%">
-            <s:layout>
-                <s:VerticalLayout gap="2"
-                                  paddingBottom="10"
-                                  paddingLeft="10"
-                                  paddingRight="10"
-                                  paddingTop="10"
-                                  verticalAlign="middle"/>
-            </s:layout>
-            <s:Label text="Links"
-                     fontSize="12"
-                     fontWeight="bold" />
-            <s:RichEditableText id="richTxtGraphsAndData"
-                                fontSize="10"
-                                editable="false"
-                                focusEnabled="false">
-                <s:textFlow>
-                    <s:TextFlow>
-                        <s:p>
-                            <s:a href="{data.graphsanddata}">Graphs and Data</s:a>
-                        </s:p>
-                    </s:TextFlow>
-                </s:textFlow>
-            </s:RichEditableText>
-            <s:RichEditableText id="richTxtMapThisHome"
-                                fontSize="10"
-                                editable="false"
-                                focusEnabled="false">
-                <s:textFlow>
-                    <s:TextFlow>
-                        <s:p>
-                            <s:a href="{data.mapthishome}">Map this home</s:a>
-                        </s:p>
-                    </s:TextFlow>
-                </s:textFlow>
-            </s:RichEditableText>
-            <s:RichEditableText id="richTxtZestimate"
-                                fontSize="10"
-                                editable="false"
-                                focusEnabled="false">
-                <s:textFlow>
-                    <s:TextFlow>
-                        <s:p>
-                            <s:a href="{data.myestimator}">Zestimate</s:a>
-                        </s:p>
-                    </s:TextFlow>
-                </s:textFlow>
-            </s:RichEditableText>
-            <s:RichEditableText id="richTxtComparables"
-                                fontSize="10"
-                                editable="false"
-                                focusEnabled="false">
-                <s:textFlow>
-                    <s:TextFlow>
-                        <s:p>
-                            <s:a href="{data.comparables}">Comparables</s:a>
-                        </s:p>
-                    </s:TextFlow>
-                </s:textFlow>
-            </s:RichEditableText>
-            <s:RichEditableText id="richTxtHomeDetails"
-                                fontSize="10"
-                                editable="false"
-                                focusEnabled="false">
-                <s:textFlow>
-                    <s:TextFlow>
-                        <s:p>
-                            <s:a href="{data.homedetails}">See more home details about {data.street} on Zillow.com</s:a>
-                        </s:p>
-                    </s:TextFlow>
-                </s:textFlow>
-            </s:RichEditableText>
-        </s:Group>
-    </s:Group>
+	<s:layout>
+		<s:VerticalLayout gap="5"
+						  paddingBottom="10"
+						  paddingLeft="10"
+						  paddingRight="10"
+						  paddingTop="10"
+						  verticalAlign="middle" />
+	</s:layout>
+	<!-- Address and Zestimate -->
+	<s:Group>
+		<s:layout>
+			<s:HorizontalLayout gap="5" />
+		</s:layout>
+		<!-- Address Info -->
+		<s:Group width="100%"
+				 height="100%">
+			<!-- border/background rectangle -->
+			<s:Rect left="0"
+					right="0"
+					top="0"
+					bottom="0"
+					radiusX="4"
+					radiusY="4">
+				<s:stroke>
+					<mx:SolidColorStroke alpha="{getStyle('borderAlpha')}"
+										 color="{getStyle('borderColor')}"
+										 weight="1" />
+				</s:stroke>
+				<s:fill>
+					<mx:SolidColor alpha="0.3"
+								   alpha.hovered="0.8"
+								   color.hovered="{getStyle('rollOverColor')}"
+								   color.normal="{getStyle('contentBackgroundColor')}" />
+				</s:fill>
+			</s:Rect>
+			<s:Group width="100%"
+					 height="100%">
+				<s:layout>
+					<s:VerticalLayout gap="5"
+									  paddingBottom="10"
+									  paddingLeft="10"
+									  paddingRight="10"
+									  paddingTop="10"
+									  verticalAlign="top" />
+				</s:layout>
+				<s:Label text="Property Address"
+						 fontSize="12"
+						 fontWeight="bold" />
+				<s:Label text="{data.street}"
+						 fontSize="10" />
+				<s:Label text="{data.city}, {data.state}"
+						 fontSize="10" />
+				<s:Label text="{data.zipcode}"
+						 fontSize="10" />
+			</s:Group>
+		</s:Group>
+		<!-- Zestimate Data -->
+		<s:Group width="100%"
+				 height="100%">
+			<!-- border/background rectangle -->
+			<s:Rect left="0"
+					right="0"
+					top="0"
+					bottom="0"
+					radiusX="4"
+					radiusY="4">
+				<s:stroke>
+					<mx:SolidColorStroke alpha="{getStyle('borderAlpha')}"
+										 color="{getStyle('borderColor')}"
+										 weight="1" />
+				</s:stroke>
+				<s:fill>
+					<mx:SolidColor alpha="0.3"
+								   alpha.hovered="0.8"
+								   color.hovered="{getStyle('rollOverColor')}"
+								   color.normal="{getStyle('contentBackgroundColor')}" />
+				</s:fill>
+			</s:Rect>
+			<s:Group width="100%"
+					 height="100%">
+				<s:layout>
+					<s:VerticalLayout gap="5"
+									  paddingBottom="10"
+									  paddingLeft="10"
+									  paddingRight="10"
+									  paddingTop="10"
+									  verticalAlign="middle" />
+				</s:layout>
+				<s:Label text="Zestimate"
+						 fontSize="12"
+						 fontWeight="bold" />
+				<s:Label text="Amount: {curFormatter.format(data.zestimateAmount)}"
+						 fontSize="10" />
+				<s:Label text="Last Changed: {data.zestimateLastUpdated}"
+						 fontSize="10" />
+				<s:Label text="Value Change: {curFormatter.format(data.zestimateValueChange)}"
+						 fontSize="10" />
+				<s:Label text="Value Change Duration: {data.zestimateValueChangeDuration} days"
+						 fontSize="10" />
+				<s:Label text="Value Range (low): {curFormatter.format(data.zestimateValuationRangeLow)}"
+						 fontSize="10" />
+				<s:Label text="Value Range (high): {curFormatter.format(data.zestimateValuationRangeHigh)}"
+						 fontSize="10" />
+				<s:Label text="Percentile: {data.zestimatePercentile}"
+						 fontSize="10" />
+			</s:Group>
+		</s:Group>
+	</s:Group>
+
+	<!-- External Links -->
+	<s:Group width="100%"
+			 height="100%">
+		<!-- border/background rectangle -->
+		<s:Rect left="0"
+				right="0"
+				top="0"
+				bottom="0"
+				radiusX="4"
+				radiusY="4">
+			<s:stroke>
+				<mx:SolidColorStroke alpha="{getStyle('borderAlpha')}"
+									 color="{getStyle('borderColor')}"
+									 weight="1" />
+			</s:stroke>
+			<s:fill>
+				<mx:SolidColor alpha="0.5"
+							   alpha.hovered="0.8"
+							   color.hovered="0xfffafa"
+							   color.normal="0xf5f5f5" />
+			</s:fill>
+		</s:Rect>
+		<s:Group width="100%"
+				 height="100%">
+			<s:layout>
+				<s:VerticalLayout gap="2"
+								  paddingBottom="10"
+								  paddingLeft="10"
+								  paddingRight="10"
+								  paddingTop="10"
+								  verticalAlign="middle" />
+			</s:layout>
+			<s:Label text="Links"
+					 fontSize="12"
+					 fontWeight="bold" />
+			<s:RichEditableText id="richTxtGraphsAndData"
+								fontSize="10"
+								editable="false"
+								focusEnabled="false">
+				<s:textFlow>
+					<s:TextFlow>
+						<s:p>
+							<s:a href="{data.graphsanddata}">Graphs and Data</s:a>
+						</s:p>
+					</s:TextFlow>
+				</s:textFlow>
+			</s:RichEditableText>
+			<s:RichEditableText id="richTxtMapThisHome"
+								fontSize="10"
+								editable="false"
+								focusEnabled="false">
+				<s:textFlow>
+					<s:TextFlow>
+						<s:p>
+							<s:a href="{data.mapthishome}">Map this home</s:a>
+						</s:p>
+					</s:TextFlow>
+				</s:textFlow>
+			</s:RichEditableText>
+			<s:RichEditableText id="richTxtZestimate"
+								fontSize="10"
+								editable="false"
+								focusEnabled="false">
+				<s:textFlow>
+					<s:TextFlow>
+						<s:p>
+							<s:a href="{data.myestimator}">Zestimate</s:a>
+						</s:p>
+					</s:TextFlow>
+				</s:textFlow>
+			</s:RichEditableText>
+			<s:RichEditableText id="richTxtComparables"
+								fontSize="10"
+								editable="false"
+								focusEnabled="false">
+				<s:textFlow>
+					<s:TextFlow>
+						<s:p>
+							<s:a href="{data.comparables}">Comparables</s:a>
+						</s:p>
+					</s:TextFlow>
+				</s:textFlow>
+			</s:RichEditableText>
+			<s:RichEditableText id="richTxtHomeDetails"
+								fontSize="10"
+								editable="false"
+								focusEnabled="false">
+				<s:textFlow>
+					<s:TextFlow>
+						<s:p>
+							<s:a href="{data.homedetails}">See more home details about {data.street} on Zillow.com</s:a>
+						</s:p>
+					</s:TextFlow>
+				</s:textFlow>
+			</s:RichEditableText>
+		</s:Group>
+	</s:Group>
 </s:ItemRenderer>
