@@ -59,7 +59,15 @@
                        label="No"
                        selected="true" />
     </s:HGroup>
-    
-	<s:Button id="searchButton"
-			  label="Search" />
+    <s:HGroup verticalAlign="middle"
+              horizontalAlign="center"
+              paddingBottom="5"
+              paddingLeft="2"
+              paddingRight="2"
+              paddingTop="5">
+        <s:Button id="searchButton"
+                  label="Search" />
+        <s:Button id="clearButton"
+                  label="Clear"/>
+    </s:HGroup>
 </s:Skin>

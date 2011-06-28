@@ -68,7 +68,8 @@ package widgets.Zillow.main.service
 			if (event.result)
 			{
 				var xmlList:XMLList = event.result.response;
-				parseRegionPostingsXML(xmlList);
+                if (xmlList)
+				    parseRegionPostingsXML(xmlList);
 			}
 			// TODO - display a message that no results were returned
 		}

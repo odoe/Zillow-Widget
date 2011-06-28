@@ -68,7 +68,7 @@ package widgets.Zillow.main.util
 					var rend:ClassFactory = new ClassFactory(RegionPostingsRenderer);
 					g.infoWindowRenderer = rend;
 					
-					assignListeners(g);
+					//assignListeners(g);
 					
 					destination.addItem(g);
 				}
@@ -124,7 +124,7 @@ package widgets.Zillow.main.util
 					var rend:ClassFactory = new ClassFactory(SearchResultsRenderer);
 					g.infoWindowRenderer = rend;
 					
-					assignListeners(g);
+					//assignListeners(g);
 					
 					destination.addItem(g);
 				}

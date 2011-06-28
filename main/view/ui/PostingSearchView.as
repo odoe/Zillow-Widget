@@ -13,6 +13,7 @@ package widgets.Zillow.main.view.ui
     import spark.components.TextInput;
     import spark.components.supportClasses.SkinnableComponent;
     
+    import widgets.Zillow.main.events.GraphicsEvent;
     import widgets.Zillow.main.events.SearchPostingsEvent;
     import widgets.Zillow.main.model.vo.PostingsSearch;
     
@@ -30,6 +31,9 @@ package widgets.Zillow.main.view.ui
         public var searchButton:Button;
         
         [SkinPart(required="true")]
+        public var clearButton:Button;
+        
+        [SkinPart(required="true")]
         public var rbYes:RadioButton;
         
         [SkinPart(required="true")]
@@ -42,6 +46,8 @@ package widgets.Zillow.main.view.ui
                 searchButton.addEventListener(MouseEvent.CLICK, onSearchButtonClicked);
 			else if (instance == searchInput)
 				searchInput.addEventListener(FlexEvent.ENTER, onInputEntered);
+            else if (instance == clearButton)
+                clearButton.addEventListener(MouseEvent.CLICK, onClearButtonClicked);
         }
 
         protected override function partRemoved(partName:String, instance:Object):void {
@@ -51,6 +57,8 @@ package widgets.Zillow.main.view.ui
                 searchButton.removeEventListener(MouseEvent.CLICK, onSearchButtonClicked);
 			else if (instance == searchInput)
 				searchInput.removeEventListener(FlexEvent.ENTER, onInputEntered);
+            else if (instance == clearButton)
+                clearButton.removeEventListener(MouseEvent.CLICK, onClearButtonClicked);
         }
         
 		protected function onInputEntered(event:FlexEvent):void
@@ -63,6 +71,11 @@ package widgets.Zillow.main.view.ui
 			doSearch();
         }
 		
+        protected function onClearButtonClicked(event:MouseEvent):void
+        {
+            dispatchEvent(new GraphicsEvent(GraphicsEvent.GRAPHICS_CLEAR, null));
+        }
+        
 		protected function doSearch():void
 		{
 			var input:String = StringUtil.trim(searchInput.text);

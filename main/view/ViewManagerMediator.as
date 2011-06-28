@@ -15,6 +15,7 @@ package widgets.Zillow.main.view
         {
             //trace("ViewManagerMediator registered");
             eventMap.mapListener(eventDispatcher, GraphicsEvent.GRAPHICS_UPDATED, onGraphicsUpdated, GraphicsEvent);
+            eventMap.mapListener(eventDispatcher, GraphicsEvent.GRAPHICS_CLEAR, onGraphicsClear, GraphicsEvent);
             eventMap.mapListener(view, ZillowIdEvent.ZILLOW_ID_READY, onZillowIdReady, ZillowIdEvent);
         }
         
@@ -22,11 +23,17 @@ package widgets.Zillow.main.view
         {
             //trace("ViewManagerMediator removed");
             eventMap.unmapListener(eventDispatcher, GraphicsEvent.GRAPHICS_UPDATED, onGraphicsUpdated, GraphicsEvent);
+            eventMap.unmapListener(eventDispatcher, GraphicsEvent.GRAPHICS_CLEAR, onGraphicsClear, GraphicsEvent);
         }
         
         protected function onGraphicsUpdated(event:GraphicsEvent):void
         {
             view.updateLayer(event.graphicsCollection);
+        }
+        
+        protected function onGraphicsClear(event:GraphicsEvent):void
+        {
+            view.clearLayer();
         }
         
         protected function onZillowIdReady(event:ZillowIdEvent):void

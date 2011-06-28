@@ -69,6 +69,12 @@ package widgets.Zillow.main.view.ui
 			}
         }
         
+        public function clearLayer():void
+        {
+            if (zillowLayer)
+                zillowLayer.clear();
+        }
+        
         public function set zwsid(value:String):void
         {
             if (value && value.length > 1)

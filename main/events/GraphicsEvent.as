@@ -5,7 +5,8 @@ package widgets.Zillow.main.events
 	import mx.collections.ArrayCollection;
 	public class GraphicsEvent extends Event
 	{
-		public static const GRAPHICS_UPDATED:String = "graphicsUpdated";
+		public static const GRAPHICS_CLEAR:String = "graphicsClear";
+        public static const GRAPHICS_UPDATED:String = "graphicsUpdated";
 		
 		public function GraphicsEvent(type:String, graphicsCollection:ArrayCollection)
 		{

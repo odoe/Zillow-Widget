@@ -8,7 +8,6 @@
 				   layout="absolute"
 				   widgetConfigLoaded="basewidget_widgetConfigLoadedHandler(event)">
 	<fx:Declarations>
-		<!-- Place non-visual elements (e.g., services, value objects) here -->
 		<main:ZillowContext contextView="{this}" />
 	</fx:Declarations>
 	<fx:Script>
